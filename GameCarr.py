@@ -6,13 +6,14 @@ import os           #libreria para el uso del os.system('cls')
 
 
 class Jugadores:
-	conductor=0
-	carro=0 
-	carril=0
+	# conductor=0
+	# carro=0 
+	# carril=0
 	distancia=0
 	Cnd=["montoya","vettel","schumacher","hamilton","alonzo","speede"]
 	cars=["redbull","lamborghini","ferrari","BMW","sauber","porsche"]
-
+	k=[]
+     
 
 	def __init__(self,a,b,c):
 		self.conductor=a
@@ -22,22 +23,19 @@ class Jugadores:
 	def mostrar(self,x):
 		print("nuestro jugador ",x," juega con el conductor ",self.Cnd[self.conductor],"que lleva el carro ",self.cars[self.carro],"y le fue asignado el carril ",self.carril)
 
-	def correr(self,x):
+	def correr(self,x,y):
 		# en esta parte podemos agregar un atraso o un avanze si el ejercicio lo amerita
-		distancia+=x
-		return distancia
+		self.k[y]+=x
 
 	def copiar(self):
-		a[self.conductor,self.carro,self.carril]
-		return a
-	
+		self.k.append(self.Cnd[self.conductor])
+		self.k.append(self.cars[self.carro])
+		self.k.append(self.carril)
+		self.k.append(0)
 
-                
-                
-                
-		
-    
-
+	def Histori(self):
+		print(self.k)
+                   
 
 lst=[] # lista de jugadores
 pista=random.randint(10, 100) 
@@ -53,12 +51,25 @@ p=[]
 # x comienza en el numero 0
 for x in range(players):
 
-        a = Jugadores(x,x,x)
-        a.mostrar(x+1)
+    a = Jugadores(x,x,x)
+    a.mostrar(x+1)
+    a.copiar()
+    
 
 # print(random.randint(0, 6)) #dado
-print(lst)
-#print(a)
+for y in range(players):
+	print ("vuelta numero",y)
+	if y==0:
+		despl=3
+		dxpl=random.randint(0, 6) #dado
+		print("el valor de rrecorrido por el jugador ",y," fue ",dxpl)
+		a.correr(dxpl,despl)
+		pass
+
+
+
+print("aqui viene el histori\n")
+a.Histori()
 time.sleep(10)
 # os.system('cls')
 os.system('pause')
