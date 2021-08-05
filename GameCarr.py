@@ -5,24 +5,28 @@ import os           #libreria para el uso del os.system('cls')
 
 
 
-class jugadores:
+class Jugadores:
 	conductor=0
 	carro=0 
 	carril=0
 	distancia=0
+	Cnd=["montoya","vettel","schumacher","hamilton","alonzo","speede"]
+	cars=["redbull","lamborghini","ferrari","BMW","sauber","porsche"]
 
-	def _init_ (self,a,b,c):
+
+	def __init__(self,a,b,c):
 		self.conductor=a
 		self.carro=b
 		self.carril=c
 
-	def mostrar(x):
-		print("nuestro jugador ",x," juega con el conductor ",self.conductor,"que lleva el carro ",self.carro,"y le fue asignado el carril ",self.carril)
+	def mostrar(self,x):
+		print("nuestro jugador ",x," juega con el conductor ",self.Cnd[self.conductor],"que lleva el carro ",self.cars[self.carro],"y le fue asignado el carril ",self.carril)
 
 	def correr(x):
 		# en esta parte podemos agregar un atraso o un avanze si el ejercicio lo amerita
 		distancia+=x
 		return distancia
+
 
 
 lst=[] # lista de jugadores
@@ -34,14 +38,16 @@ time.sleep(1)
 players=random.randint(2, 6) 
 print("El numero de autos compitiendo son\n", players,"autos")
 
-Cnd=["montoya","vettel","schumacher","hamilton","alonzo","speede"]
-cars=["redbull","lamborghini","ferrari","BMW","sauber","porsche"]
-for x in range(players):
-	a = jugadores()
 
+
+for x in range(players):
+
+        a = Jugadores(x+1,x+1,x+1)
+        a.mostrar(x+1)
 
 # print(random.randint(0, 6)) #dado
 print(lst)
+#print(a)
 time.sleep(1)
 # os.system('cls')
 os.system('pause')
