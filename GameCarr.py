@@ -9,6 +9,7 @@ class jugadores:
 	conductor=0
 	carro=0 
 	carril=0
+	distancia=0
 
 	def _init_ (self,a,b,c):
 		self.conductor=a
@@ -18,6 +19,10 @@ class jugadores:
 	def mostrar(x):
 		print("nuestro jugador ",x," juega con el conductor ",self.conductor,"que lleva el carro ",self.carro,"y le fue asignado el carril ",self.carril)
 
+	def correr(x):
+		# en esta parte podemos agregar un atraso o un avanze si el ejercicio lo amerita
+		distancia+=x
+		return distancia
 
 
 lst=[] # lista de jugadores
@@ -28,15 +33,16 @@ print("La pista a recorrer tiene\n", pista*100,"mts")
 time.sleep(1)
 players=random.randint(2, 6) 
 print("El numero de autos compitiendo son\n", players,"autos")
-# while d!='n':
-# 	N=input("Escriba el nombre de jugador \n")
-# 	lst.append(N)
-# 	d=input("Desea agregar otro jugador Y o N \n").lower() 
-# 	pass
+
+Cnd=["montoya","vettel","schumacher","hamilton","alonzo","speede"]
+cars=["redbull","lamborghini","ferrari","BMW","sauber","porsche"]
+for x in range(players):
+	a = jugadores()
 
 
-
-print(random.randint(0, 6)) #dado
+# print(random.randint(0, 6)) #dado
 print(lst)
 time.sleep(1)
-os.system('cls')
+# os.system('cls')
+os.system('pause')
+
