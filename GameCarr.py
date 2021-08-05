@@ -24,15 +24,16 @@ class Jugadores:
 	def mostrar(self,x):
 		print("El jugador ",x," juega con ",self.Cnd[self.conductor],"que lleva el carro ",self.cars[self.carro],"y le fue asignado el carril ",self.carril)
 
-	def correr(self,x):
+	def correr(self,x,y):
 		# en esta parte podemos agregar un atraso o un avanze si el ejercicio lo amerita
-		self.tramos[x]+=x
+		self.tramos[y]+=x
 
 	def copiar(self):
 		self.k.append(self.Cnd[self.conductor])
 		self.k.append(self.cars[self.carro])
 		self.k.append(self.carril)
 		self.tramos.append(0)
+
 
 	def Histori(self):
 		print(self.k)
@@ -51,27 +52,7 @@ class Jugadores:
 			pass
 			
 	def premiacion(self):
-		if y==0:
-			despl=3
-			pass
-		if y==1:
-			despl=7
-			pass
-		if y==2:
-			despl=11
-			pass
-		if y==3:
-			despl=15
-			pass
-		if y==4:
-			despl=19
-			pass
-		if y==5:
-			despl=23
-			pass
-		if y==6:
-			despl=27
-			pass
+		
 		print(self.k)
 
 pista=random.randint(10, 100) 
@@ -82,7 +63,6 @@ print("La pista a recorrer tiene\n", pista*100,"mts")
 time.sleep(1)
 players=random.randint(2, 6) 
 print("El numero de autos compitiendo son\n", players,"autos")
-
 
 # x comienza en el numero 0
 for x in range(players):
@@ -99,7 +79,7 @@ for y in range(players):
 
 	dxpl=random.randint(0, 6) #dado
 	# print("el valor de rrecorrido por el jugador ",y," fue ",dxpl)
-	a.correr(dxpl)
+	a.correr(dxpl,y)
 	time.sleep(1)
 
 # premiacion
