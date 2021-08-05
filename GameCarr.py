@@ -21,7 +21,7 @@ class Jugadores:
 		self.carril=c
 
 	def mostrar(self,x):
-		print("nuestro jugador ",x," juega con el conductor ",self.Cnd[self.conductor],"que lleva el carro ",self.cars[self.carro],"y le fue asignado el carril ",self.carril)
+		print("El jugador ",x," juega con ",self.Cnd[self.conductor],"que lleva el carro ",self.cars[self.carro],"y le fue asignado el carril ",self.carril)
 
 	def correr(self,x,y):
 		# en esta parte podemos agregar un atraso o un avanze si el ejercicio lo amerita
@@ -39,6 +39,7 @@ class Jugadores:
 	def Visual(self,pl):
 		# para cada jugador
 		for x in range(pl):
+			print(self.Cnd[x] )
 			# imprime numero de distancia equivalentes a 100 mts
 			if x==0:
 				y=3
@@ -51,11 +52,21 @@ class Jugadores:
 				pass
 			if x==3:
 				y=15
-				pass		
-			for Mts in range(self.k[y]):
-				print("█")
 				pass
-			print("  __________________________")
+			if x==4:
+				y=19
+				pass
+			if x==5:
+				y=23
+				pass
+			if x==6:
+				y=27
+				pass
+			for Mts in range(self.k[y]):
+				print("█", end='')
+				pass
+			print("")
+			print("  __________________________\n")
 			pass
 			
 
@@ -77,64 +88,40 @@ for x in range(players):
     a.copiar()
     
 
-# print(random.randint(0, 6)) #dado
+# primera vuelta
 for y in range(players):
 
 	if y==0:
 		despl=3
-		dxpl=random.randint(0, 6) #dado
-		print("el valor de recorrido por el jugador ",y," fue ",dxpl)
-		a.correr(dxpl,despl)
 		pass
-
 	if y==1:
 		despl=7
-		dxpl=random.randint(0, 6) #dado
-		print("el valor de rrecorrido por el jugador ",y," fue ",dxpl)
-		a.correr(dxpl,despl)
 		pass
-
 	if y==2:
 		despl=11
-		dxpl=random.randint(0, 6) #dado
-		print("el valor de rrecorrido por el jugador ",y," fue ",dxpl)
-		a.correr(dxpl,despl)
 		pass
-
 	if y==3:
 		despl=15
-		dxpl=random.randint(0, 6) #dado
-		print("el valor de rrecorrido por el jugador ",y," fue ",dxpl)
-		a.correr(dxpl,despl)
 		pass
-
 	if y==4:
 		despl=19
-		dxpl=random.randint(0, 6) #dado
-		print("el valor de rrecorrido por el jugador ",y," fue ",dxpl)
-		a.correr(dxpl,despl)
 		pass
-
 	if y==5:
 		despl=23
-		dxpl=random.randint(0, 6) #dado
-		print("el valor de rrecorrido por el jugador ",y," fue ",dxpl)
-		a.correr(dxpl,despl)
 		pass
-
 	if y==6:
 		despl=27
-		dxpl=random.randint(0, 6) #dado
-		print("el valor de rrecorrido por el jugador ",y," fue ",dxpl)
-		a.correr(dxpl,despl)
 		pass
+	dxpl=random.randint(0, 6) #dado
+	# print("el valor de rrecorrido por el jugador ",y," fue ",dxpl)
+	a.correr(dxpl,despl)
 
 
 
 
 
-print("aqui viene el histori\n")
-a.Histori()
+# print("aqui viene el histori\n")
+# a.Histori()
 a.Visual(players)
 time.sleep(10)
 # os.system('cls')
