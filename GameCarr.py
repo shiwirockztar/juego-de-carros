@@ -14,6 +14,7 @@ class Jugadores:
 	cars=["redbull","lamborghini","ferrari","BMW","sauber","porsche"]
 	k=[]
 	tramos=[]
+	altar=[]
      
 
 	def __init__(self,a,b,c):
@@ -52,8 +53,21 @@ class Jugadores:
 			pass
 			
 	def premiacion(self):
+		newlist=self.tramos.copy()
+		for x in range(3):
+
+			if self.tramos.count(self.tramos[self.tramos.index(max(newlist))])>=2:
+				print("Hay empate entre",self.tramos.index(max(newlist)) ,"y ",self.tramos.index(max(newlist),self.tramos.index(max(newlist))+1))
+				pass
+
+			if self.tramos.count(self.tramos[self.tramos.index(max(newlist))])<2:
+				print(self.tramos.index(max(newlist)))
+				pass
+			# print(self.tramos.index(max(newlist)))
+			newlist = [x for x in newlist if x != newlist[newlist.index(max(newlist))]]
+
+
 		
-		print(self.k)
 
 pista=random.randint(10, 100) 
 d='y' # variable para la Desicion de aceptar mas jugadores comienza como YES
@@ -80,15 +94,14 @@ for y in range(players):
 	dxpl=random.randint(0, 6) #dado
 	# print("el valor de rrecorrido por el jugador ",y," fue ",dxpl)
 	a.correr(dxpl,y)
-	time.sleep(1)
-
-# premiacion
-
+	# time.sleep(1)
 
 
 # print("aqui viene el histori\n")
 # a.Histori()
 a.Visual(players)
+a.premiacion()
+
 time.sleep(10)
 # os.system('cls')
 os.system('pause')
