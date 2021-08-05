@@ -39,7 +39,7 @@ class Jugadores:
 	def Visual(self,pl):
 		# para cada jugador
 		for x in range(pl):
-			print(self.Cnd[x] )
+			
 			# imprime numero de distancia equivalentes a 100 mts
 			if x==0:
 				y=3
@@ -62,6 +62,7 @@ class Jugadores:
 			if x==6:
 				y=27
 				pass
+			print(self.Cnd[x],"  ",self.k[y],"00 mts"  )
 			for Mts in range(self.k[y]):
 				print("█", end='')
 				pass
@@ -69,6 +70,29 @@ class Jugadores:
 			print("  __________________________\n")
 			pass
 			
+	def premiacion(self):
+		if y==0:
+			despl=3
+			pass
+		if y==1:
+			despl=7
+			pass
+		if y==2:
+			despl=11
+			pass
+		if y==3:
+			despl=15
+			pass
+		if y==4:
+			despl=19
+			pass
+		if y==5:
+			despl=23
+			pass
+		if y==6:
+			despl=27
+			pass
+		print(self.k)
 
 pista=random.randint(10, 100) 
 d='y' # variable para la Desicion de aceptar mas jugadores comienza como YES
@@ -87,8 +111,10 @@ for x in range(players):
     a.mostrar(x+1)
     a.copiar()
     
+print(" ")
 
 # primera vuelta
+
 for y in range(players):
 
 	if y==0:
@@ -115,8 +141,9 @@ for y in range(players):
 	dxpl=random.randint(0, 6) #dado
 	# print("el valor de rrecorrido por el jugador ",y," fue ",dxpl)
 	a.correr(dxpl,despl)
+	time.sleep(1)
 
-
+# premiacion
 
 
 
