@@ -37,7 +37,6 @@ class Jugadores:
 		print(self.k)
                    
 
-lst=[] # lista de jugadores
 pista=random.randint(10, 100) 
 d='y' # variable para la Desicion de aceptar mas jugadores comienza como YES
 print("Bienvenido al juego de los carros\n")
@@ -47,7 +46,7 @@ time.sleep(1)
 players=random.randint(2, 6) 
 print("El numero de autos compitiendo son\n", players,"autos")
 
-p=[]
+
 # x comienza en el numero 0
 for x in range(players):
 
@@ -58,13 +57,57 @@ for x in range(players):
 
 # print(random.randint(0, 6)) #dado
 for y in range(players):
-	print ("vuelta numero",y)
+
 	if y==0:
 		despl=3
+		dxpl=random.randint(0, 6) #dado
+		print("el valor de recorrido por el jugador ",y," fue ",dxpl)
+		a.correr(dxpl,despl)
+		pass
+
+	if y==1:
+		despl=7
 		dxpl=random.randint(0, 6) #dado
 		print("el valor de rrecorrido por el jugador ",y," fue ",dxpl)
 		a.correr(dxpl,despl)
 		pass
+
+	if y==2:
+		despl=11
+		dxpl=random.randint(0, 6) #dado
+		print("el valor de rrecorrido por el jugador ",y," fue ",dxpl)
+		a.correr(dxpl,despl)
+		pass
+
+	if y==3:
+		despl=15
+		dxpl=random.randint(0, 6) #dado
+		print("el valor de rrecorrido por el jugador ",y," fue ",dxpl)
+		a.correr(dxpl,despl)
+		pass
+
+	if y==4:
+		despl=19
+		dxpl=random.randint(0, 6) #dado
+		print("el valor de rrecorrido por el jugador ",y," fue ",dxpl)
+		a.correr(dxpl,despl)
+		pass
+
+	if y==5:
+		despl=23
+		dxpl=random.randint(0, 6) #dado
+		print("el valor de rrecorrido por el jugador ",y," fue ",dxpl)
+		a.correr(dxpl,despl)
+		pass
+
+	if y==6:
+		despl=27
+		dxpl=random.randint(0, 6) #dado
+		print("el valor de rrecorrido por el jugador ",y," fue ",dxpl)
+		a.correr(dxpl,despl)
+		pass
+
+
 
 
 
