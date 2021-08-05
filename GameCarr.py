@@ -35,7 +35,29 @@ class Jugadores:
 
 	def Histori(self):
 		print(self.k)
-                   
+          
+	def Visual(self,pl):
+		# para cada jugador
+		for x in range(pl):
+			# imprime numero de distancia equivalentes a 100 mts
+			if x==0:
+				y=3
+				pass
+			if x==1:
+				y=7
+				pass
+			if x==2:
+				y=11
+				pass
+			if x==3:
+				y=15
+				pass		
+			for Mts in range(self.k[y]):
+				print("█")
+				pass
+			print("  __________________________")
+			pass
+			
 
 pista=random.randint(10, 100) 
 d='y' # variable para la Desicion de aceptar mas jugadores comienza como YES
@@ -113,6 +135,7 @@ for y in range(players):
 
 print("aqui viene el histori\n")
 a.Histori()
+a.Visual(players)
 time.sleep(10)
 # os.system('cls')
 os.system('pause')
