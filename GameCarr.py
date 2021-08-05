@@ -13,6 +13,7 @@ class Jugadores:
 	Cnd=["montoya","vettel","schumacher","hamilton","alonzo","speede"]
 	cars=["redbull","lamborghini","ferrari","BMW","sauber","porsche"]
 	k=[]
+	tramos=[]
      
 
 	def __init__(self,a,b,c):
@@ -23,15 +24,15 @@ class Jugadores:
 	def mostrar(self,x):
 		print("El jugador ",x," juega con ",self.Cnd[self.conductor],"que lleva el carro ",self.cars[self.carro],"y le fue asignado el carril ",self.carril)
 
-	def correr(self,x,y):
+	def correr(self,x):
 		# en esta parte podemos agregar un atraso o un avanze si el ejercicio lo amerita
-		self.k[y]+=x
+		self.tramos[x]+=x
 
 	def copiar(self):
 		self.k.append(self.Cnd[self.conductor])
 		self.k.append(self.cars[self.carro])
 		self.k.append(self.carril)
-		self.k.append(0)
+		self.tramos.append(0)
 
 	def Histori(self):
 		print(self.k)
@@ -41,29 +42,8 @@ class Jugadores:
 		for x in range(pl):
 			
 			# imprime numero de distancia equivalentes a 100 mts
-			if x==0:
-				y=3
-				pass
-			if x==1:
-				y=7
-				pass
-			if x==2:
-				y=11
-				pass
-			if x==3:
-				y=15
-				pass
-			if x==4:
-				y=19
-				pass
-			if x==5:
-				y=23
-				pass
-			if x==6:
-				y=27
-				pass
-			print(self.Cnd[x],"  ",self.k[y],"00 mts"  )
-			for Mts in range(self.k[y]):
+			print(self.Cnd[x],"  ",self.tramos[x],"00 mts"  )
+			for Mts in range(self.tramos[x]):
 				print("█", end='')
 				pass
 			print("")
@@ -117,30 +97,9 @@ print(" ")
 
 for y in range(players):
 
-	if y==0:
-		despl=3
-		pass
-	if y==1:
-		despl=7
-		pass
-	if y==2:
-		despl=11
-		pass
-	if y==3:
-		despl=15
-		pass
-	if y==4:
-		despl=19
-		pass
-	if y==5:
-		despl=23
-		pass
-	if y==6:
-		despl=27
-		pass
 	dxpl=random.randint(0, 6) #dado
 	# print("el valor de rrecorrido por el jugador ",y," fue ",dxpl)
-	a.correr(dxpl,despl)
+	a.correr(dxpl)
 	time.sleep(1)
 
 # premiacion
