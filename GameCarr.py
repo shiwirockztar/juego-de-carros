@@ -22,33 +22,44 @@ class Jugadores:
 	def mostrar(self,x):
 		print("nuestro jugador ",x," juega con el conductor ",self.Cnd[self.conductor],"que lleva el carro ",self.cars[self.carro],"y le fue asignado el carril ",self.carril)
 
-	def correr(x):
+	def correr(self,x):
 		# en esta parte podemos agregar un atraso o un avanze si el ejercicio lo amerita
 		distancia+=x
 		return distancia
 
+	def copiar(self):
+		a[self.conductor,self.carro,self.carril]
+		return a
+	
+
+                
+                
+                
+		
+    
 
 
 lst=[] # lista de jugadores
 pista=random.randint(10, 100) 
 d='y' # variable para la Desicion de aceptar mas jugadores comienza como YES
 print("Bienvenido al juego de los carros\n")
+
 print("La pista a recorrer tiene\n", pista*100,"mts")
 time.sleep(1)
 players=random.randint(2, 6) 
 print("El numero de autos compitiendo son\n", players,"autos")
 
-
-
+p=[]
+# x comienza en el numero 0
 for x in range(players):
 
-        a = Jugadores(x+1,x+1,x+1)
+        a = Jugadores(x,x,x)
         a.mostrar(x+1)
 
 # print(random.randint(0, 6)) #dado
 print(lst)
 #print(a)
-time.sleep(1)
+time.sleep(10)
 # os.system('cls')
 os.system('pause')
 
