@@ -23,8 +23,21 @@ class Jugadores:
 		self.carro=b
 		self.carril=a
 
-	def mostrar(self):
-		print("El jugador juega con ",self.conductor,"que lleva el carro ",self.carro,"y le fue asignado el carril ",self.carril)
+	def mostrar(self,pl):
+		print("El jugador juega con ",self.conductor," lleva el carro ",self.carro,"y le fue asignado el carril ",self.carril)
+		i=0
+		n=0
+		k=1
+		while i<pl-1:
+			if k==self.carril:
+				k+=1
+				pass
+			print("El jugador juega con ",self.rivals[n]," lleva el carro ",self.rivals[n+1],"y le fue asignado el carril ",k)
+			i+=1
+			k+=1
+			n+=2
+			pass
+		pass
 
 	def copiar(self):
 		self.k.append(self.conductor)
@@ -33,9 +46,10 @@ class Jugadores:
 		self.tramos.append(0)
 		pass
 
-	def rival(self,r):
-		self.rivals.append(r)
-		print(self.rivals)
+	def rival(self,ra,rb):
+		self.rivals.append(ra)
+		self.rivals.append(rb)
+		# print(self.rivals)
 		pass
 
 
@@ -64,47 +78,43 @@ menuE='''
 
 Cnd=["montoya","vettel","schumacher","hamilton","alonzo","speede"]
 cars=["redbull","lamborghini","ferrari","BMW","sauber","porsche"]
-rivals=[]
-
 
 # aqui tomamos las opciones del ususario
 
-x=int(input("Por favor introduzca la posiciona o carril a elegir\n"))
-print(menuE)
-y=int(input("Por favor introduzca la escuderia a elegir\n"))
-print(menuC)
-z=int(input("Por favor introduzca el conductor a elegir\n"))
+# x=int(input("Por favor introduzca la posiciona o carril a elegir\n"))
+# print(menuE)
+# y=int(input("Por favor introduzca la escuderia a elegir\n"))
+# print(menuC)
+# z=int(input("Por favor introduzca el conductor a elegir\n"))
+x=1
+y=1
+z=1
 
 a = Jugadores(x,cars[y],Cnd[z])
-a.mostrar()
 
 newCnd=Cnd.copy()
 newcars=cars.copy()
 newCnd = [w for w in newCnd if Cnd[z] != w]
 newcars = [w for w in newcars if cars[y] != w]
-# print(newCnd)
-# print(newcars)
 
 i=0
 while i<players-1:
 	# 
 	xa=random.choice(newCnd)
-	rivals.append(xa)
-	# print("el jugador ",i+1,"juega con ",xa,"que lleva el carro ", end='')
 	xb=random.choice(newcars)
-	rivals.append(xb)
-	# print(xb," y le fue asignado el carril ", i+1)
 	newCnd = [w for w in newCnd if xa != w]
 	# print(newCnd, "  ",xa)
 	newcars = [w for w in newcars if xb != w]
 	# print(newcars, "  ",xb)
-	a.rival(rivals)
+	a.rival(xa,xb)
+	# a.rival(rivals)
+
 	i+=1
 	pass
 
-print(rivals)
 # a.rival(rivals)
 # a.copiar()
+a.mostrar(players)
 
 time.sleep(5)    
 print(" ")
