@@ -44,7 +44,7 @@ class Jugadores:
 			n+=2
 			pass
 		# print(self.npista)
-		print(self.rivals)
+		# print(self.rivals)
 		pass
 
 # nos enlaza los rivales con sus carros
@@ -93,11 +93,11 @@ class Jugadores:
 				if n==self.npista[i]:
 					# print(self.tramos[i]*100," Mts")
 					if n==self.carril:
-						print(self.conductor," ----->",self.tramos[i]*100," Mts")
+						print(self.conductor,"  PLAYER ",self.tramos[i]*100," Mts")
 						pass
 					elif n!=self.carril:
 						# nb=(n-1)*2
-						print(self.rivals[d]," ----->",self.tramos[i]*100," Mts")
+						print(self.rivals[d],"         ",self.tramos[i]*100," Mts")
 						d+=2	
 						pass
 					# print("n = ",n,"coincide con npista= ",self.npista[i])
@@ -113,12 +113,26 @@ class Jugadores:
 			i=0
 			pass
 		pass
+	
+	def premiacion(self):
+		newlist=self.tramos.copy()
+		for x in range(3):
+
+			# self.tramos.index(max(newlist))->el maximo tramo de todos los jugadores
+			if self.tramos.count(self.tramos[self.tramos.index(max(newlist))])>=2:
+				print("Hay empate entre",self.Cnd[self.tramos.index(max(newlist))] ,"y ",self.Cnd[self.tramos.index(max(newlist),self.tramos.index(max(newlist))+1)])
+				pass
+
+			if self.tramos.count(self.tramos[self.tramos.index(max(newlist))])<2:
+				print(self.Cnd[self.tramos.index(max(newlist))])
+				pass
+			# print(self.tramos.index(max(newlist)))
+			newlist = [x for x in newlist if x != newlist[newlist.index(max(newlist))]]		
+
 		
 
-
-
 players=random.randint(2, 6)
-players=5 
+# players=5 
 pista=random.randint(10, 100) 
 d='y' # variable para la Desicion de aceptar mas jugadores comienza como YES
 
@@ -146,14 +160,14 @@ cars=["redbull","lamborghini","ferrari","BMW","sauber","porsche"]
 
 # aqui tomamos las opciones del ususario
 
-# x=int(input("Por favor introduzca la posiciona o carril a elegir\n"))
-# print(menuE)
-# y=int(input("Por favor introduzca la escuderia a elegir\n"))
-# print(menuC)
-# z=int(input("Por favor introduzca el conductor a elegir\n"))
-x=2	
-y=1
-z=1
+x=int(input("Por favor introduzca la posiciona o carril a elegir\n"))
+print(menuE)
+y=int(input("Por favor introduzca la escuderia a elegir\n"))
+print(menuC)
+z=int(input("Por favor introduzca el conductor a elegir\n"))
+# x=2	
+# y=1
+# z=1
 
 a = Jugadores(x,cars[y],Cnd[z],players)
 
@@ -179,9 +193,10 @@ while i<players-1:
 	pass
 # -----------------------------------------------------------------
 a.mostrar(players)
-# time.sleep(5)
+time.sleep(7)
 
 a.competir(players)
+# a.premiacion()
 
 time.sleep(5)    
 print(" ")
