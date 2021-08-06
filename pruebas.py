@@ -11,12 +11,12 @@ class Jugadores:
 	carril=0
 	distancia=0
 
-	k=[]
 	tramos=[]
 	podio=[]
 	rivals=[]
+	npista=[]
      
-
+# constructor que inicializa los carriles que jugaran en 0
 	def __init__(self,a,b,c,pl):
 		# tarea agregar validaciones
 		self.conductor=c
@@ -26,8 +26,10 @@ class Jugadores:
 			self.tramos.append(0)
 			pass
 
+# mostrar nos muestra el conductor carro y posicion de carril que jugara, ademas las guarda esas posiciones en npista
 	def mostrar(self,pl):
 		print("El jugador juega con ",self.conductor," lleva el carro ",self.carro,"y le fue asignado el carril ",self.carril)
+		self.npista.append(self.carril)
 		i=0
 		n=0
 		k=1
@@ -36,37 +38,49 @@ class Jugadores:
 				k+=1
 				pass
 			print(self.rivals[n]," lleva el carro ",self.rivals[n+1],"y le fue asignado el carril ",k)
+			self.npista.append(k)
 			i+=1
 			k+=1
 			n+=2
 			pass
+		print(self.npista)
 		pass
 
+# nos enlaza los rivales con sus carros
 	def rival(self,ra,rb):
-		self.rivals.append(ra)
 		self.rivals.append(rb)
+		self.rivals.append(ra)
 		# print(self.rivals)
 		pass
 
 	def competir(self,pista,players):
-		while max(self.tramos) < pista:
-			for x in range(players):
+		# while max(self.tramos) < pista:
+		while max(self.tramos) < 10:
+
+			# aqi en vez de x deberia ser el turno de el citado
+			for x in range(players): 
 				self.tramos[x]+=random.randint(0, 6)
 				pass
 			pass
-			# print(self.tramos)
-			os.system('cls')
-			self.Visual(players)
+			print(self.tramos)
+			# os.system('cls')
+			# self.Visual(players,pista)
 			time.sleep(1)  
 		pass
 
-	def Visual(self,pl):
-		for x in range(pl):
-			print(self.tramos[x],"00 mts"  )
+	def Visual(self,pl,pista):
+
+		print("La pista es de ",pista*100," Mts")
+		n=0
+		k=pl-1
+		for x in range(k):
+
+			print(self.rivals[n], self.tramos[x],"00 mts"  )
 			for Mts in range(self.tramos[x]):
 				print("█", end='')
 				pass
 			pass
+			n+=2
 			print("")
 			print("  __________________________\n")
 		pass
@@ -133,7 +147,7 @@ while i<players-1:
 	pass
 # -----------------------------------------------------------------
 a.mostrar(players)
-time.sleep(5)
+# time.sleep(5)
 
 a.competir(pista,players)
 
