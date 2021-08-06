@@ -10,18 +10,21 @@ class Jugadores:
 	carro=0 
 	carril=0
 	distancia=0
-	# Cnd=["montoya","vettel","schumacher","hamilton","alonzo","speede"]
-	# cars=["redbull","lamborghini","ferrari","BMW","sauber","porsche"]
+
 	k=[]
 	tramos=[]
 	podio=[]
 	rivals=[]
      
 
-	def __init__(self,a,b,c):
+	def __init__(self,a,b,c,pl):
 		self.conductor=c
 		self.carro=b
 		self.carril=a
+		for x in range(pl):
+			self.tramos.append(0)
+			pass
+		print(self.tramos)
 
 	def mostrar(self,pl):
 		print("El jugador juega con ",self.conductor," lleva el carro ",self.carro,"y le fue asignado el carril ",self.carril)
@@ -32,18 +35,11 @@ class Jugadores:
 			if k==self.carril:
 				k+=1
 				pass
-			print("El jugador juega con ",self.rivals[n]," lleva el carro ",self.rivals[n+1],"y le fue asignado el carril ",k)
+			print(self.rivals[n]," lleva el carro ",self.rivals[n+1],"y le fue asignado el carril ",k)
 			i+=1
 			k+=1
 			n+=2
 			pass
-		pass
-
-	def copiar(self):
-		self.k.append(self.conductor)
-		self.k.append(self.carro)
-		self.k.append(self.carril)
-		self.tramos.append(0)
 		pass
 
 	def rival(self,ra,rb):
@@ -51,6 +47,12 @@ class Jugadores:
 		self.rivals.append(rb)
 		# print(self.rivals)
 		pass
+
+	def competir(self,pista,players):
+		while max(self.tramos) < pista:
+			pass
+		pass
+
 
 
 players=random.randint(2, 6) 
@@ -76,27 +78,26 @@ menuE='''
 2>ferrari        5>porsche 
 '''
 
-Cnd=["montoya","vettel","schumacher","hamilton","alonzo","speede"]
+Cnd=["montoya","vettel","schumacher","hamilton","alonzo","speedy"]
 cars=["redbull","lamborghini","ferrari","BMW","sauber","porsche"]
 
 # aqui tomamos las opciones del ususario
 
-# x=int(input("Por favor introduzca la posiciona o carril a elegir\n"))
-# print(menuE)
-# y=int(input("Por favor introduzca la escuderia a elegir\n"))
-# print(menuC)
-# z=int(input("Por favor introduzca el conductor a elegir\n"))
-x=1
-y=1
-z=1
+x=int(input("Por favor introduzca la posiciona o carril a elegir\n"))
+print(menuE)
+y=int(input("Por favor introduzca la escuderia a elegir\n"))
+print(menuC)
+z=int(input("Por favor introduzca el conductor a elegir\n"))
 
-a = Jugadores(x,cars[y],Cnd[z])
+
+a = Jugadores(x,cars[y],Cnd[z],players)
 
 newCnd=Cnd.copy()
 newcars=cars.copy()
 newCnd = [w for w in newCnd if Cnd[z] != w]
 newcars = [w for w in newcars if cars[y] != w]
 
+# /////////////////seleccionar rivales ////////////////
 i=0
 while i<players-1:
 	# 
@@ -111,10 +112,10 @@ while i<players-1:
 
 	i+=1
 	pass
-
-# a.rival(rivals)
-# a.copiar()
+# -----------------------------------------------------------------
 a.mostrar(players)
+
+a.competir(pista,players)
 
 time.sleep(5)    
 print(" ")
