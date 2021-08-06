@@ -53,7 +53,7 @@ class Jugadores:
 		# print(self.rivals)
 		pass
 
-	def competir(self,pista,players):
+	def competir(self,players):
 		# while max(self.tramos) < pista:
 		while max(self.tramos) < 10:
 
@@ -158,7 +158,7 @@ while i<players-1:
 a.mostrar(players)
 # time.sleep(5)
 
-a.competir(pista,players)
+a.competir(players)
 
 time.sleep(5)    
 print(" ")
