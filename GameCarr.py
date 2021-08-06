@@ -66,13 +66,25 @@ class Jugadores:
 			# print(self.tramos.index(max(newlist)))
 			newlist = [x for x in newlist if x != newlist[newlist.index(max(newlist))]]
 
+	def ciclos(self,pista,players):
+		while max(self.tramos) < pista:
+
+			# print(max(self.tramos))
+			for x in range(players):
+				self.tramos[x]+=random.randint(0, 6)
+				pass
+			
+			pass
+			# print(self.tramos)
+
 
 		
 
 pista=random.randint(10, 100) 
 d='y' # variable para la Desicion de aceptar mas jugadores comienza como YES
-print("Bienvenido al juego de los carros\n")
 
+
+print("Bienvenido al juego de los carros\n")
 print("La pista a recorrer tiene\n", pista*100,"mts")
 time.sleep(1)
 players=random.randint(2, 6) 
@@ -84,18 +96,10 @@ for x in range(players):
     a = Jugadores(x,x,x)
     a.mostrar(x+1)
     a.copiar()
-    
+time.sleep(5)    
 print(" ")
 
-# primera vuelta
-
-for y in range(players):
-
-	dxpl=random.randint(0, 6) #dado
-	# print("el valor de rrecorrido por el jugador ",y," fue ",dxpl)
-	a.correr(dxpl,y)
-	# time.sleep(1)
-
+a.ciclos(pista,players)
 
 # print("aqui viene el histori\n")
 # a.Histori()
