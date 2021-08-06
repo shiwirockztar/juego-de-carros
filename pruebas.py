@@ -18,13 +18,13 @@ class Jugadores:
      
 
 	def __init__(self,a,b,c,pl):
+		# tarea agregar validaciones
 		self.conductor=c
 		self.carro=b
 		self.carril=a
 		for x in range(pl):
 			self.tramos.append(0)
 			pass
-		print(self.tramos)
 
 	def mostrar(self,pl):
 		print("El jugador juega con ",self.conductor," lleva el carro ",self.carro,"y le fue asignado el carril ",self.carril)
@@ -50,8 +50,27 @@ class Jugadores:
 
 	def competir(self,pista,players):
 		while max(self.tramos) < pista:
+			for x in range(players):
+				self.tramos[x]+=random.randint(0, 6)
+				pass
 			pass
+			# print(self.tramos)
+			os.system('cls')
+			self.Visual(players)
+			time.sleep(1)  
 		pass
+
+	def Visual(self,pl):
+		for x in range(pl):
+			print(self.tramos[x],"00 mts"  )
+			for Mts in range(self.tramos[x]):
+				print("█", end='')
+				pass
+			pass
+			print("")
+			print("  __________________________\n")
+		pass
+		
 
 
 
@@ -114,6 +133,7 @@ while i<players-1:
 	pass
 # -----------------------------------------------------------------
 a.mostrar(players)
+time.sleep(5)
 
 a.competir(pista,players)
 
