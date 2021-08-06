@@ -58,8 +58,17 @@ class Jugadores:
 		while max(self.tramos) < 10:
 
 			# aqi en vez de x deberia ser el turno de el citado
+			n=1
+			i=0
 			for x in range(players): 
-				self.tramos[x]+=random.randint(0, 6)
+				while i<players:
+					if n==self.npista[i]:
+						self.tramos[i]+=random.randint(0, 6)
+						pass
+					i+=1
+					pass
+				n+=1
+				i=0
 				pass
 			pass
 			print(self.tramos)
