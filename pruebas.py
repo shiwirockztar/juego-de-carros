@@ -43,19 +43,20 @@ class Jugadores:
 			k+=1
 			n+=2
 			pass
-		print(self.npista)
+		# print(self.npista)
+		print(self.rivals)
 		pass
 
 # nos enlaza los rivales con sus carros
 	def rival(self,ra,rb):
-		self.rivals.append(rb)
 		self.rivals.append(ra)
+		self.rivals.append(rb)
 		# print(self.rivals)
 		pass
 
 	def competir(self,players):
-		# while max(self.tramos) < pista:
-		while max(self.tramos) < 10:
+		while max(self.tramos) < pista:
+		# while max(self.tramos) < 10:
 
 			# aqi en vez de x deberia ser el turno de el citado
 			n=1
@@ -71,33 +72,53 @@ class Jugadores:
 				i=0
 				pass
 			pass
-			print(self.tramos)
+			# print(self.tramos)
+			os.system('cls')
+			# aqui pasamos la primera vuelta o primer
+			print("la pista mide ",pista*100,"  ")
+			self.Visual(players,pista)
 			# os.system('cls')
-			# self.Visual(players,pista)
+			# os.system('pause')
 			time.sleep(1)  
 		pass
 
 	def Visual(self,pl,pista):
+		# print("la pista mide ",pista*100,"  ")
 
-		print("La pista es de ",pista*100," Mts")
-		n=0
-		k=pl-1
-		for x in range(k):
-
-			print(self.rivals[n], self.tramos[x],"00 mts"  )
-			for Mts in range(self.tramos[x]):
-				print("█", end='')
+		i=0
+		n=1
+		d=0
+		for x in range(pl):
+			while i<pl:
+				if n==self.npista[i]:
+					# print(self.tramos[i]*100," Mts")
+					if n==self.carril:
+						print(self.conductor," ----->",self.tramos[i]*100," Mts")
+						pass
+					elif n!=self.carril:
+						# nb=(n-1)*2
+						print(self.rivals[d]," ----->",self.tramos[i]*100," Mts")
+						d+=2	
+						pass
+					# print("n = ",n,"coincide con npista= ",self.npista[i])
+					for w in range(self.tramos[i]):
+						print("█", end='')
+						pass
+					print("")
+					print("  __________________________\n")
+					pass
+				i+=1
 				pass
+			n+=1
+			i=0
 			pass
-			n+=2
-			print("")
-			print("  __________________________\n")
 		pass
 		
 
 
 
-players=random.randint(2, 6) 
+players=random.randint(2, 6)
+players=5 
 pista=random.randint(10, 100) 
 d='y' # variable para la Desicion de aceptar mas jugadores comienza como YES
 
@@ -125,12 +146,14 @@ cars=["redbull","lamborghini","ferrari","BMW","sauber","porsche"]
 
 # aqui tomamos las opciones del ususario
 
-x=int(input("Por favor introduzca la posiciona o carril a elegir\n"))
-print(menuE)
-y=int(input("Por favor introduzca la escuderia a elegir\n"))
-print(menuC)
-z=int(input("Por favor introduzca el conductor a elegir\n"))
-
+# x=int(input("Por favor introduzca la posiciona o carril a elegir\n"))
+# print(menuE)
+# y=int(input("Por favor introduzca la escuderia a elegir\n"))
+# print(menuC)
+# z=int(input("Por favor introduzca el conductor a elegir\n"))
+x=2	
+y=1
+z=1
 
 a = Jugadores(x,cars[y],Cnd[z],players)
 
