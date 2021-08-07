@@ -123,20 +123,26 @@ class Jugadores:
 			if i==0:
 				cont=1
 				pass
+			else :
+				cont=0
+				pass
 			self.grabar(nwpodio[i],i+1,cont)
 			i+=1
 			pass
 		pass
 		
 	def grabar(self,conductor,posicion,cont):
-		print("guardando")
+		# print("guardando")
 		archivo=open("resultados.csv","a")
 		archivo.write(conductor)
 		archivo.write(",")
 		archivo.write(str(posicion))
+		archivo.write(",")
+		archivo.write(str(cont))
 		archivo.write("\n")
 		# archivo.write(",")
 		archivo.close()
+		print("guardado")
 		pass
 
 Cnd=["montoya","vettel","schumacher","hamilton","alonzo","speedy"]
