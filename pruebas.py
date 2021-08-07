@@ -4,10 +4,6 @@ import random       #libreria para el uso de los numero aleatorios
 import os           #libreria para el uso del os.system('cls')
 
 class Jugadores:
-	conductor=0
-	carro=0 
-	carril=0
-	distancia=0
 
 	tramos=[]
 	podio=[]
@@ -76,7 +72,7 @@ class Jugadores:
 				print("*", end='')
 				pass
 			print("")
-			time.sleep(0.3)  
+			#time.sleep(0.3)  
 		pass
 
 	def Visual(self,pl,pista):
@@ -124,10 +120,24 @@ class Jugadores:
 		i=0
 		while i<3:
 			print("lugar numero ",i+1," en el podio para",nwpodio[i])
+			if i==0:
+				cont=1
+				pass
+			self.grabar(nwpodio[i],i+1,cont)
 			i+=1
 			pass
 		pass
 		
+	def grabar(self,conductor,posicion,cont):
+		print("guardando")
+		archivo=open("resultados.csv","a")
+		archivo.write(conductor)
+		archivo.write(",")
+		archivo.write(str(posicion))
+		archivo.write("\n")
+		# archivo.write(",")
+		archivo.close()
+		pass
 
 Cnd=["montoya","vettel","schumacher","hamilton","alonzo","speedy"]
 cars=["redbull","lamborghini","ferrari","BMW","sauber","porsche"]
@@ -144,7 +154,8 @@ menuE='''
 2>ferrari        5>porsche 
 '''
 players=random.randint(3, 6)
-pista=random.randint(69, 100) 
+pista=random.randint(69, 100)
+pista=23
 print("Bienvenido al juego de los carros\n")
 print("El numero de jugadores es ",players)
 print("La pista a recorrer tiene\n", pista*100,"mts")
