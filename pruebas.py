@@ -55,7 +55,7 @@ class Jugadores:
 		pass
 
 	def competir(self,players):
-		while max(self.tramos) < pista:
+		while min(self.tramos) < pista:
 		# while max(self.tramos) < 10:
 
 			# aqi en vez de x deberia ser el turno de el citado
@@ -94,10 +94,16 @@ class Jugadores:
 					# print(self.tramos[i]*100," Mts")
 					if n==self.carril:
 						print(self.conductor,"  PLAYER ",self.tramos[i]*100," Mts")
+						if self.tramos[i]>pista:
+							self.podio.append(self.conductor)
+							pass
 						pass
 					elif n!=self.carril:
 						# nb=(n-1)*2
 						print(self.rivals[d],"         ",self.tramos[i]*100," Mts")
+						if self.tramos[i]>pista:
+							self.podio.append(self.rivals[d])
+							pass
 						d+=2	
 						pass
 					# print("n = ",n,"coincide con npista= ",self.npista[i])
@@ -115,19 +121,21 @@ class Jugadores:
 		pass
 	
 	def premiacion(self):
-		newlist=self.tramos.copy()
-		for x in range(3):
-
-			# self.tramos.index(max(newlist))->el maximo tramo de todos los jugadores
-			if self.tramos.count(self.tramos[self.tramos.index(max(newlist))])>=2:
-				print("Hay empate entre",self.Cnd[self.tramos.index(max(newlist))] ,"y ",self.Cnd[self.tramos.index(max(newlist),self.tramos.index(max(newlist))+1)])
+		nwpodio = []
+		for x in self.podio:
+			if x not in nwpodio:
+				nwpodio.append(x)
 				pass
-
-			if self.tramos.count(self.tramos[self.tramos.index(max(newlist))])<2:
-				print(self.Cnd[self.tramos.index(max(newlist))])
-				pass
-			# print(self.tramos.index(max(newlist)))
-			newlist = [x for x in newlist if x != newlist[newlist.index(max(newlist))]]		
+			pass
+			
+		print("podio para ")
+		i=0
+		while i<3:
+			print(nwpodio[i])
+			i+=1
+			pass
+		pass
+	
 
 		
 
@@ -193,10 +201,10 @@ while i<players-1:
 	pass
 # -----------------------------------------------------------------
 a.mostrar(players)
-time.sleep(7)
+os.system('pause')
 
 a.competir(players)
-# a.premiacion()
+a.premiacion()
 
 time.sleep(5)    
 print(" ")
