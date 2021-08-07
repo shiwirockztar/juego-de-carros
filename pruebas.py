@@ -79,7 +79,7 @@ class Jugadores:
 			self.Visual(players,pista)
 			# os.system('cls')
 			# os.system('pause')
-			time.sleep(1)  
+			time.sleep(0.5)  
 		pass
 
 	def Visual(self,pl,pista):
@@ -127,11 +127,11 @@ class Jugadores:
 				nwpodio.append(x)
 				pass
 			pass
-			
+
 		print("podio para ")
 		i=0
 		while i<3:
-			print(nwpodio[i])
+			print("lugar numero ",i+1," en el podio para",nwpodio[i])
 			i+=1
 			pass
 		pass
@@ -139,8 +139,8 @@ class Jugadores:
 
 		
 
-players=random.randint(2, 6)
-# players=5 
+players=random.randint(3, 6)
+# players=2 
 pista=random.randint(10, 100) 
 d='y' # variable para la Desicion de aceptar mas jugadores comienza como YES
 
@@ -168,11 +168,61 @@ cars=["redbull","lamborghini","ferrari","BMW","sauber","porsche"]
 
 # aqui tomamos las opciones del ususario
 
-x=int(input("Por favor introduzca la posiciona o carril a elegir\n"))
+while True:
+    try:
+        x = int(input("Por favor introduzca la posiciona o carril a elegir\n"))
+    except ValueError:
+        print("Debes escribir un número.")
+        pass
+
+    if x <= 0:
+        print("Debes escribir un número positivo.")
+        pass
+    if x > players:
+    	print("Debes escribir un carril disponible.")
+    	pass
+
+    else:
+        break
+
 print(menuE)
-y=int(input("Por favor introduzca la escuderia a elegir\n"))
+while True:
+    try:
+        y=int(input("Por favor introduzca la escuderia a elegir\n"))
+    except ValueError:
+        print("Debes escribir un número.")
+        pass
+
+    if y < 0:
+        print("Debes escribir un número positivo.")
+        pass
+    if y > 5:
+    	print("debes escojer una escuderia disponible.")
+    	pass
+
+    else:
+        break
+
 print(menuC)
-z=int(input("Por favor introduzca el conductor a elegir\n"))
+while True:
+    try:
+        z=int(input("Por favor introduzca el conductor a elegir\n"))
+    except ValueError:
+        print("Debes escribir un número.")
+        pass
+
+    if z < 0:
+        print("Debes escribir un número positivo.")
+        pass
+    if z > 5:
+    	print("debes escojer una escuderia disponible.")
+    	pass
+
+    else:
+        break
+
+
+
 # x=2	
 # y=1
 # z=1
