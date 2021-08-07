@@ -72,7 +72,7 @@ class Jugadores:
 				print("*", end='')
 				pass
 			print("")
-			#time.sleep(0.3)  
+			time.sleep(0.3)  
 		pass
 
 	def Visual(self,pl,pista):
@@ -119,6 +119,7 @@ class Jugadores:
 		print("podio para ")
 		i=0
 		while i<3:
+			print(nwpodio[i])
 			print("lugar numero ",i+1," en el podio para",nwpodio[i])
 			# if i==0 or i==0 :
 			if i==0 :
@@ -131,11 +132,10 @@ class Jugadores:
 			self.grabar(nwpodio[i],i+1,cont)
 			i+=1
 			pass
-		self.vick()
-		# self.puntajes()
+		self.puntajes()
 		pass
 		
-	def vick(self):
+	def puntajes(self):
 		archivo=open("resultados.csv","r")
 		puntajes = []
 		for linea in archivo:
@@ -143,12 +143,16 @@ class Jugadores:
 			puntajes.append((conductor,int(posicion),victorias))
 			pass
 		archivo.close()
-		print(puntajes)
+		# print(puntajes)
 		archivo=open("resultados.csv","a")
 		archivo.write(",")
 		archivo.write("--victorias--")
 		archivo.write("\n")
-		archivo.close()		
+		archivo.write(puntajes[0][0])
+		archivo.write(",")
+		archivo.write(puntajes[0][2])
+		archivo.close()	
+		# self.Vpuntajes()	
 		pass
 
 	def grabar(self,conductor,posicion,cont):
@@ -164,24 +168,17 @@ class Jugadores:
 		print("guardado")
 		pass
 
-	# def puntajes(self):
-	# 	puntajes = []
-	# 	archivo=open("resultados.csv","r")
-	# 	for linea in archivo:
-	# 		conductor,posicion,victorias = linea.rstrip("\n").split(",")
-	# 		puntajes.append((conductor,int(posicion),victorias))
-	# 		pass
-	# 	archivo.close()
-	# 	print(puntajes)
-	# 	print(len(puntajes))
-	# 	print(puntajes[1])
-	# 	print(len(puntajes[1]))
-	# 	print(puntajes[1][0])
+	def Vpuntajes(self):
+		puntajes = []
+		archivo=open("resultados.csv","r")
+		for linea in archivo:
+			conductor= linea.rstrip("\n").split(",")
+			puntajes.append(conductor)
+			pass
+		archivo.close()
+		print(puntajes)
 
-	# 	if len(puntajes)>2:
-	# 		print("conteo de VICTORIAS")
-	# 		pass
-	# 	pass
+		pass
 
 Cnd=["montoya","vettel","schumacher","hamilton","alonzo","speedy"]
 cars=["redbull","lamborghini","ferrari","BMW","sauber","porsche"]
@@ -199,7 +196,7 @@ menuE='''
 '''
 players=random.randint(3, 6)
 pista=random.randint(69, 100)
-pista=23
+# pista=15
 print("Bienvenido al juego de los carros\n")
 print("El numero de jugadores es ",players)
 print("La pista a recorrer tiene\n", pista*100,"mts")
