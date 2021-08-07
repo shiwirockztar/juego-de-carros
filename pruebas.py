@@ -41,15 +41,12 @@ class Jugadores:
 			k+=1
 			n+=2
 			pass
-		# print(self.npista)
-		# print(self.rivals)
 		pass
 
 # nos enlaza los rivales con sus carros
 	def rival(self,ra,rb):
 		self.rivals.append(ra)
 		self.rivals.append(rb)
-		# print(self.rivals)
 		pass
 
 	def competir(self,players):
@@ -69,7 +66,6 @@ class Jugadores:
 				pass
 			pass
 			os.system('cls')
-			# aqui pasamos la primera vuelta o primer
 			print("la pista mide ",pista*100,"  ")
 			for x in range(pista):
 				print("*", end='')
@@ -80,8 +76,6 @@ class Jugadores:
 				print("*", end='')
 				pass
 			print("")
-			# os.system('cls')
-			# os.system('pause')
 			time.sleep(0.3)  
 		pass
 
@@ -109,8 +103,7 @@ class Jugadores:
 					for w in range(self.tramos[i]):
 						print("█", end='')
 						pass
-					print("")
-					print("  __________________________\n")
+					print("\n","  __________________________\n")
 					pass
 				i+=1
 				pass
@@ -211,10 +204,6 @@ while True:
     else:
         break
 
-# x=2	
-# y=1
-# z=1
-
 a = Jugadores(x,cars[y],Cnd[z],players)
 
 # /////////////////seleccionar rivales ////////////////
@@ -228,11 +217,8 @@ while i<players-1:
 	xa=random.choice(newCnd)
 	xb=random.choice(newcars)
 	newCnd = [w for w in newCnd if xa != w]
-	# print(newCnd, "  ",xa)
 	newcars = [w for w in newcars if xb != w]
-	# print(newcars, "  ",xb)
 	a.rival(xa,xb)
-	# a.rival(rivals)
 
 	i+=1
 	pass
@@ -241,6 +227,7 @@ a.mostrar(players)
 os.system('pause')
 a.competir(players)
 a.premiacion()
+# a.grabar()
 time.sleep(5)    
 print(" ")
 os.system('pause')
