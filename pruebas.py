@@ -119,7 +119,7 @@ class Jugadores:
 		print("podio para ")
 		i=0
 		while i<3:
-			print(nwpodio[i])
+			# print(nwpodio[i])
 			print("lugar numero ",i+1," en el podio para",nwpodio[i])
 			# if i==0 or i==0 :
 			if i==0 :
@@ -151,7 +151,9 @@ class Jugadores:
 		archivo.write(puntajes[0][0])
 		archivo.write(",")
 		archivo.write(puntajes[0][2])
+		archivo.write("\n")
 		archivo.close()	
+		# print(self.Vpuntajes().index())
 		# self.Vpuntajes()	
 		pass
 
@@ -168,6 +170,7 @@ class Jugadores:
 		print("guardado")
 		pass
 
+# esta linea coje lo que hay dentro del excel para verlo y utilizarlo
 	def Vpuntajes(self):
 		puntajes = []
 		archivo=open("resultados.csv","r")
@@ -177,7 +180,7 @@ class Jugadores:
 			pass
 		archivo.close()
 		print(puntajes)
-
+		# return puntajes
 		pass
 
 Cnd=["montoya","vettel","schumacher","hamilton","alonzo","speedy"]
@@ -194,7 +197,7 @@ menuE='''
 1>lamborghini    4>sauber
 2>ferrari        5>porsche 
 '''
-players=random.randint(3, 6)
+players=random.randint(4, 6)
 pista=random.randint(69, 100)
 # pista=15
 print("Bienvenido al juego de los carros\n")
