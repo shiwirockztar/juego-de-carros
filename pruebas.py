@@ -120,7 +120,9 @@ class Jugadores:
 		i=0
 		while i<3:
 			print("lugar numero ",i+1," en el podio para",nwpodio[i])
-			if i==0:
+			# if i==0 or i==0 :
+			if i==0 :
+				# en esta parte le agregamos una victoria
 				cont=1
 				pass
 			else :
@@ -140,7 +142,6 @@ class Jugadores:
 		archivo.write(",")
 		archivo.write(str(cont))
 		archivo.write("\n")
-		# archivo.write(",")
 		archivo.close()
 		print("guardado")
 		pass
