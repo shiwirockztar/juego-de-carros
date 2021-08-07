@@ -131,9 +131,26 @@ class Jugadores:
 			self.grabar(nwpodio[i],i+1,cont)
 			i+=1
 			pass
-		self.puntajes()
+		self.vick()
+		# self.puntajes()
 		pass
 		
+	def vick(self):
+		archivo=open("resultados.csv","r")
+		puntajes = []
+		for linea in archivo:
+			conductor,posicion,victorias = linea.rstrip("\n").split(",")
+			puntajes.append((conductor,int(posicion),victorias))
+			pass
+		archivo.close()
+		print(puntajes)
+		archivo=open("resultados.csv","a")
+		archivo.write(",")
+		archivo.write("--victorias--")
+		archivo.write("\n")
+		archivo.close()		
+		pass
+
 	def grabar(self,conductor,posicion,cont):
 		# print("guardando")
 		archivo=open("resultados.csv","a")
@@ -147,16 +164,24 @@ class Jugadores:
 		print("guardado")
 		pass
 
-	def puntajes(self):
-		puntajes = []
-		archivo=open("resultados.csv","r")
-		for linea in archivo:
-			conductor,posicion,victorias = linea.rstrip("\n").split(",")
-			puntajes.append((conductor,int(posicion),victorias))
-			pass
-		archivo.close()
-		print(puntajes)
-		pass
+	# def puntajes(self):
+	# 	puntajes = []
+	# 	archivo=open("resultados.csv","r")
+	# 	for linea in archivo:
+	# 		conductor,posicion,victorias = linea.rstrip("\n").split(",")
+	# 		puntajes.append((conductor,int(posicion),victorias))
+	# 		pass
+	# 	archivo.close()
+	# 	print(puntajes)
+	# 	print(len(puntajes))
+	# 	print(puntajes[1])
+	# 	print(len(puntajes[1]))
+	# 	print(puntajes[1][0])
+
+	# 	if len(puntajes)>2:
+	# 		print("conteo de VICTORIAS")
+	# 		pass
+	# 	pass
 
 Cnd=["montoya","vettel","schumacher","hamilton","alonzo","speedy"]
 cars=["redbull","lamborghini","ferrari","BMW","sauber","porsche"]
