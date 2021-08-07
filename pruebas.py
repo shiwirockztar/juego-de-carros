@@ -131,6 +131,7 @@ class Jugadores:
 			self.grabar(nwpodio[i],i+1,cont)
 			i+=1
 			pass
+		self.puntajes()
 		pass
 		
 	def grabar(self,conductor,posicion,cont):
@@ -144,6 +145,17 @@ class Jugadores:
 		archivo.write("\n")
 		archivo.close()
 		print("guardado")
+		pass
+
+	def puntajes(self):
+		puntajes = []
+		archivo=open("resultados.csv","r")
+		for linea in archivo:
+			conductor,posicion,victorias = linea.rstrip("\n").split(",")
+			puntajes.append((conductor,int(posicion),victorias))
+			pass
+		archivo.close()
+		print(puntajes)
 		pass
 
 Cnd=["montoya","vettel","schumacher","hamilton","alonzo","speedy"]
