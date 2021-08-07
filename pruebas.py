@@ -3,8 +3,6 @@ import time         #libreria para el uso del time.sleep()
 import random       #libreria para el uso de los numero aleatorios
 import os           #libreria para el uso del os.system('cls')
 
-
-
 class Jugadores:
 	conductor=0
 	carro=0 
@@ -56,15 +54,13 @@ class Jugadores:
 
 	def competir(self,players):
 		while min(self.tramos) < pista:
-		# while max(self.tramos) < 10:
 
-			# aqi en vez de x deberia ser el turno de el citado
 			n=1
 			i=0
 			for x in range(players): 
 				while i<players:
 					if n==self.npista[i]:
-						self.tramos[i]+=random.randint(0, 6)
+						self.tramos[i]+=random.randint(1, 6)
 						pass
 					i+=1
 					pass
@@ -72,18 +68,24 @@ class Jugadores:
 				i=0
 				pass
 			pass
-			# print(self.tramos)
 			os.system('cls')
 			# aqui pasamos la primera vuelta o primer
 			print("la pista mide ",pista*100,"  ")
+			for x in range(pista):
+				print("*", end='')
+				pass
+			print("")
 			self.Visual(players,pista)
+			for x in range(pista):
+				print("*", end='')
+				pass
+			print("")
 			# os.system('cls')
 			# os.system('pause')
-			time.sleep(0.5)  
+			time.sleep(0.3)  
 		pass
 
 	def Visual(self,pl,pista):
-		# print("la pista mide ",pista*100,"  ")
 
 		i=0
 		n=1
@@ -91,7 +93,6 @@ class Jugadores:
 		for x in range(pl):
 			while i<pl:
 				if n==self.npista[i]:
-					# print(self.tramos[i]*100," Mts")
 					if n==self.carril:
 						print(self.conductor,"  PLAYER ",self.tramos[i]*100," Mts")
 						if self.tramos[i]>pista:
@@ -99,14 +100,12 @@ class Jugadores:
 							pass
 						pass
 					elif n!=self.carril:
-						# nb=(n-1)*2
 						print(self.rivals[d],"         ",self.tramos[i]*100," Mts")
 						if self.tramos[i]>pista:
 							self.podio.append(self.rivals[d])
 							pass
 						d+=2	
 						pass
-					# print("n = ",n,"coincide con npista= ",self.npista[i])
 					for w in range(self.tramos[i]):
 						print("█", end='')
 						pass
@@ -135,36 +134,27 @@ class Jugadores:
 			i+=1
 			pass
 		pass
-	
-
 		
 
-players=random.randint(3, 6)
-# players=2 
-pista=random.randint(10, 100) 
-d='y' # variable para la Desicion de aceptar mas jugadores comienza como YES
-
-
-print("Bienvenido al juego de los carros\n")
-print("El numero de jugadores es ",players)
-print("La pista a recorrer tiene\n", pista*100,"mts")
-
+Cnd=["montoya","vettel","schumacher","hamilton","alonzo","speedy"]
+cars=["redbull","lamborghini","ferrari","BMW","sauber","porsche"]
 menuC='''
          Menu :
 0>montoya	 3>hamilton	 
 1>vettel         4>alonzo
 2>schumacher     5>speede 
 '''
-
 menuE='''
          Menu :
 0>redbull	 3>BMW	 
 1>lamborghini    4>sauber
 2>ferrari        5>porsche 
 '''
-
-Cnd=["montoya","vettel","schumacher","hamilton","alonzo","speedy"]
-cars=["redbull","lamborghini","ferrari","BMW","sauber","porsche"]
+players=random.randint(3, 6)
+pista=random.randint(69, 100) 
+print("Bienvenido al juego de los carros\n")
+print("El numero de jugadores es ",players)
+print("La pista a recorrer tiene\n", pista*100,"mts")
 
 # aqui tomamos las opciones del ususario
 
@@ -221,20 +211,17 @@ while True:
     else:
         break
 
-
-
 # x=2	
 # y=1
 # z=1
 
 a = Jugadores(x,cars[y],Cnd[z],players)
 
+# /////////////////seleccionar rivales ////////////////
 newCnd=Cnd.copy()
 newcars=cars.copy()
 newCnd = [w for w in newCnd if Cnd[z] != w]
 newcars = [w for w in newcars if cars[y] != w]
-
-# /////////////////seleccionar rivales ////////////////
 i=0
 while i<players-1:
 	# 
@@ -252,13 +239,10 @@ while i<players-1:
 # -----------------------------------------------------------------
 a.mostrar(players)
 os.system('pause')
-
 a.competir(players)
 a.premiacion()
-
 time.sleep(5)    
 print(" ")
-
 os.system('pause')
 
 
